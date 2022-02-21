@@ -7,9 +7,11 @@ import org.example.repository.CustomerRepositoryDB;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class defaultCustomerService {
+public class defaultCustomerService implements CustomerService {
 
     private CustomerDatabase repository;
+
+    // below is dependy injection
 
     public defaultCustomerService(CustomerDatabase repository) {
         this.repository = repository;
