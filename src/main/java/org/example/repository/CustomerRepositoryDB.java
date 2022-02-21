@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.example.model.Customer;
-public class CustomerRepositoryDB {
+public class CustomerRepositoryDB  implements CustomerDatabase{
     public List<Customer> findAll() {
         List<Customer>customers=new ArrayList<>();
 
