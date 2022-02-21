@@ -1,7 +1,7 @@
-package app;
+package org.example.app;
 
-import model.Customer;
-import service.defaultCustomerService;
+import org.example.model.Customer;
+import org.example.service.defaultCustomerService;
 
 import java.util.List;
 

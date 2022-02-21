@@ -1,9 +1,9 @@
-package repository;
+package org.example.repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import model.Customer;
+import org.example.model.Customer;
 public class CustomerRepositoryDB {
     public List<Customer> findAll() {
         List<Customer>customers=new ArrayList<>();
