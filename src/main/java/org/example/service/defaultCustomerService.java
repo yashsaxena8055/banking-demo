@@ -1,19 +1,18 @@
 package org.example.service;
 
 import org.example.model.Customer;
-import org.example.repository.CustomerDatabase;
-import org.example.repository.CustomerRepositoryDB;
+import org.example.repository.CustomerRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class defaultCustomerService implements CustomerService {
 
-    private CustomerDatabase repository;
+    private CustomerRepository repository;
 
-    // below is dependy injection
+    // below is dependency injection
 
-    public defaultCustomerService(CustomerDatabase repository) {
+    public defaultCustomerService(CustomerRepository repository) {
         this.repository = repository;
     }
 
