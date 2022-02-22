@@ -17,9 +17,9 @@ public class defaultCustomerService implements CustomerService {
 
     // below is dependency injection
 
-    public defaultCustomerService(CustomerRepository repository) {
-        this.repository = repository;
-    }
+//    public defaultCustomerService(CustomerRepository repository) {
+//        this.repository = repository;
+//    }
 
     public List<Customer> getAllCustomers() {
 
