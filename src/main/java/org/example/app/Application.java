@@ -37,7 +37,7 @@ public class Application {
 
         ApplicationContext context=new AnnotationConfigApplicationContext(AppConfig.class);
 
-        CustomerService service=context.getBean("CustomerService",CustomerService.class);
+        CustomerService service=context.getBean("customerService",CustomerService.class);
 
         List<Customer> customers=service.getAllCustomers();
 

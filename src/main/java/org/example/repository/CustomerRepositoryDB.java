@@ -1,9 +1,13 @@
 package org.example.repository;
 
+import org.example.model.Customer;
+import org.springframework.stereotype.Repository;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import org.example.model.Customer;
+
+@Repository
 public class CustomerRepositoryDB  implements CustomerRepository {
     public List<Customer> findAll() {
         List<Customer>customers=new ArrayList<>();
