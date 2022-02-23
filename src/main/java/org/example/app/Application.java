@@ -1,10 +1,9 @@
 package org.example.app;
 
-import org.example.AppConfig;
 import org.example.model.Customer;
 import org.example.service.CustomerService;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 // ioc : invertion of control
@@ -35,9 +34,9 @@ public class Application {
 
         //*----------USING SPRING FRAME WORK---------------*
 
-        ApplicationContext context=new AnnotationConfigApplicationContext(AppConfig.class);
+        ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        CustomerService service=context.getBean("customerService",CustomerService.class);
+        CustomerService service=context.getBean("CustomerService",CustomerService.class);
 
         List<Customer> customers=service.getAllCustomers();
 
