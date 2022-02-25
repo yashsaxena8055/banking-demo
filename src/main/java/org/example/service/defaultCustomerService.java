@@ -44,11 +44,16 @@ public class defaultCustomerService implements CustomerService {
     }
 
     @Override
+    public Customer saveCustomer(Customer customer) {
+        return  repository.saveAndFlush(customer);
+    }
+
+    @Override
     public void deleteCustomer(long id) {
         Optional<Customer> optionalCustomer= repository.findById(id);
         if(optionalCustomer.isPresent()){
             repository.deleteById(id);
-            throw new ResponseStatusException(HttpStatus.OK,"Customer is deleted");
+           return;
         }
         else{
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer Not Found");

@@ -18,17 +18,23 @@ public class CustomersController {
     public List<Customer> getAllCustomers() {
         return service.getAllCustomers();
     }
+
     @GetMapping
     @RequestMapping("{id}")
-    public ResponseEntity<Customer> getCustomer(@PathVariable long id){
+    public ResponseEntity<Customer> getCustomer(@PathVariable long id) {
 
-            return service.getCustomer(id);
+        return service.getCustomer(id);
     }
+
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-    public  void deleteCustomer( @PathVariable long id){
+    public void deleteCustomer(@PathVariable long id) {
 
-   service.deleteCustomer(id);
+        service.deleteCustomer(id);
+    }
 
-
+    @PostMapping
+    public Customer saveCustomer(@RequestBody Customer customer) {
+        return service.saveCustomer(customer);
     }
 }
+
