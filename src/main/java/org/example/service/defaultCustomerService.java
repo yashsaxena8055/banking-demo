@@ -3,6 +3,8 @@ package org.example.service;
 import org.example.model.Customer;
 import org.example.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,9 +30,15 @@ public class defaultCustomerService implements CustomerService {
     }
 
     @Override
-    public Customer getCustomer(Long id) {
+
+    public ResponseEntity<Customer> getCustomer(Long id) {
         Optional<Customer> optionalCustomer= repository.findById(id);
-        return optionalCustomer.get();
+        if(optionalCustomer.isPresent()){
+            return new ResponseEntity<Customer>(optionalCustomer.get(),HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @Override
