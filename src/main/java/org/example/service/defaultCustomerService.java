@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,13 +38,21 @@ public class defaultCustomerService implements CustomerService {
             return new ResponseEntity<Customer>(optionalCustomer.get(),HttpStatus.OK);
         }
         else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer Not Found");
         }
     }
 
     @Override
-    public void  deleteCustomer(long id) {
-        repository.deleteById(id);
+    public void deleteCustomer(long id) {
+        Optional<Customer> optionalCustomer= repository.findById(id);
+        if(optionalCustomer.isPresent()){
+            repository.deleteById(id);
+            throw new ResponseStatusException(HttpStatus.OK,"Customer is deleted");
+        }
+        else{
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer Not Found");
+        }
 
     }
 

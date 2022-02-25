@@ -25,9 +25,10 @@ public class CustomersController {
             return service.getCustomer(id);
     }
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-    public  List<Customer> deleteCustomer( @PathVariable long id){
-        service.deleteCustomer(id);
-        return service.getAllCustomers();
+    public  void deleteCustomer( @PathVariable long id){
+
+   service.deleteCustomer(id);
+
 
     }
 }
