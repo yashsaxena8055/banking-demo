@@ -26,6 +26,7 @@ public class defaultCustomerService implements CustomerService {
         this.repository = repository;
     }
 
+    @Override
     public List<Customer> getAllCustomers() {
 
         return repository.findAll();
