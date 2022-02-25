@@ -36,5 +36,12 @@ public class CustomersController {
     public Customer saveCustomer(@RequestBody Customer customer) {
         return service.saveCustomer(customer);
     }
+
+
+    @PutMapping(value = "{id}")
+    public Customer saveCustomer(@PathVariable Long id, @RequestBody Customer customer) {
+        return service.updateCustomer(id, customer);
+    }
 }
+
 
